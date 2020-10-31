@@ -1,0 +1,6 @@
+package epam.com.java.module1.classes;
+
+public enum Department {
+    MATHEMATICS, BIOLOGY, PSYCHOLOGY, SLAVIC_LANGUAGES_AND_LITERATURES, ROMANCE_LANGUAGES_AND_LITERATURES,
+    SOCIOLOGY, HISTORY;
+}
