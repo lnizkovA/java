@@ -3,7 +3,6 @@ package epam.com.java.module1.collection.maintask.salad;
 import epam.com.java.module1.collection.maintask.vegetables.Vegetable;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -54,21 +53,11 @@ public class Salad {
     }
 
     public void sortVegetablesByName(){
-        Collections.sort(vegetables, new Comparator<Vegetable>() {
-            @Override
-            public int compare(Vegetable o1, Vegetable o2) {
-                return o1.getName().compareTo(o2.getName());
-            }
-        });
+        vegetables.sort(Comparator.comparing(Vegetable::getName));
     }
 
     public void sortVegetablesByKcalPer100g(){
-        Collections.sort(vegetables, new Comparator<Vegetable>() {
-            @Override
-            public int compare(Vegetable o1, Vegetable o2) {
-                return (int) (o1.getKcalPer100g() - o2.getKcalPer100g());
-            }
-        });
+        vegetables.sort(Comparator.comparingInt(Vegetable::getKcalPer100g));
     }
 
     public List<Vegetable> getVegetablesFromKcalDiapason(int maxKcal, int minKcal){

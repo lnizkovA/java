@@ -13,20 +13,20 @@ public class StudentListUtils {
         studentsList.add(student);
     }
 
-    public void printAllStudents() {
-        sortStudentsInAlphabeticalOrder(studentsList);
-        studentsList.forEach(student -> System.out.println(student.toString()));
+    public List<Student> getStudentsList() {
+        return studentsList;
     }
 
-    public List<Student> sortStudentsInAlphabeticalOrder(List<Student> students) {
-        Collections.sort(students, new Comparator<Student>() {
-            @Override
-            public int compare(Student o1, Student o2) {
-                int surnameCompareResult = o1.getSurname().compareTo(o2.getSurname());
-                return ((surnameCompareResult == 0) ? o1.getName().compareTo(o2.getName()) : surnameCompareResult);
-            }
+    public void printStudents(List<Student> students) {
+        sortStudentsInAlphabeticalOrder(students);
+        students.forEach(student -> System.out.println(student.toString()));
+    }
+
+    public void sortStudentsInAlphabeticalOrder(List<Student> students) {
+        students.sort((o1, o2) -> {
+            int surnameCompareResult = o1.getSurname().compareTo(o2.getSurname());
+            return ((surnameCompareResult == 0) ? o1.getName().compareTo(o2.getName()) : surnameCompareResult);
         });
-        return studentsList;
     }
 
 
@@ -39,8 +39,7 @@ public class StudentListUtils {
             }
         }
         if (!students.isEmpty()) {
-            sortStudentsInAlphabeticalOrder(students);
-            students.forEach(student -> System.out.println(student.toString()));
+            printStudents(students);
         } else {
             System.out.println("No students in " + department + " department!");
         }
@@ -57,8 +56,7 @@ public class StudentListUtils {
             }
         }
         if (!students.isEmpty()) {
-            sortStudentsInAlphabeticalOrder(students);
-            students.forEach(student -> System.out.println(student.toString()));
+            printStudents(students);
         } else {
             System.out.println("No students in " + department + " department and " + course + " course!");
         }
@@ -73,8 +71,7 @@ public class StudentListUtils {
             }
         }
         if (!students.isEmpty()) {
-            sortStudentsInAlphabeticalOrder(students);
-            students.forEach(student -> System.out.println(student.toString()));
+            printStudents(students);
         } else {
             System.out.println("No students in " + group + " group!");
         }
@@ -94,8 +91,7 @@ public class StudentListUtils {
             }
         }
         if (!students.isEmpty()) {
-            sortStudentsInAlphabeticalOrder(students);
-            students.forEach(student -> System.out.println(student.toString()));
+            printStudents(students);
         } else {
             System.out.println("No student(s) who was born after " + year + " year!");
         }

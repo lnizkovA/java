@@ -75,7 +75,7 @@ public class StudentTest {
         students.addStudent(st10);
         students.addStudent(st11);
         students.addStudent(st12);
-        students.printAllStudents();
+        students.printStudents(students.getStudentsList());
         students.printStudentsByDepartment(Department.MATHEMATICS);
         students.printStudentByDepartmentAndCourse(Department.MATHEMATICS, Course.SECOND);
         students.printStudentsByGroup(Group.GROUP1);
